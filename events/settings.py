@@ -80,7 +80,7 @@ DATABASES = {
         "NAME": "events_database",
         "SCHEMA": "public",
         "USER": "postgres",
-        "PASSWORD": "ADSADSADASD",
+        "PASSWORD": "ASDADASADASDASDADS",
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }

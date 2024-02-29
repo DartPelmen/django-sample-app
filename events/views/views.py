@@ -12,6 +12,7 @@ def index(request):
 
 def getEvent(request):
     events = eventController.getAll()
+    #здесь нужна конвертация в EventModel
     return JsonResponse(events, safe=False)
     
 def addEvent(request):
@@ -20,8 +21,10 @@ def addEvent(request):
         eventModel = EventModel()
         eventModel.eventName = request_body['name']
         eventModel.eventDescription = request_body['description']
-        event = Event(eventName = eventModel.eventName, eventDescription = eventModel.eventDescription)
-        eventController.add(event)
+        eventController.add(Event(eventName = eventModel
+                                  .eventName,
+                                  eventDescription = eventModel
+                                  .eventDescription))
         return JsonResponse(eventModel.__dict__) 
     else: 
         return HttpResponse(status = 405)    

@@ -11,4 +11,5 @@ class EventService:
         Event.save(event)
 
     def dropEventById(self, id: int):
+        #Здесь нужна проверка наличия Event по ID
         Event.objects.get(pk = id).delete()
