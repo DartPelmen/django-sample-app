@@ -8,4 +8,7 @@ class EventService:
         return list(Event.objects.all().values())
     
     def addEvent(self, event: Event):
-        Event.save(Event())
+        Event.save(event)
+
+    def dropEventById(self, id: int):
+        Event.objects.get(pk = id).delete()

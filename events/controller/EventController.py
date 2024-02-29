@@ -11,3 +11,5 @@ class EventController:
         self.eventService.addEvent(event)
     def getAll(self):
         return self.eventService.getEvents()
+    def deleteById(self, id:int):
+        self.eventService.dropEventById(id)

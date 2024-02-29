@@ -3,9 +3,8 @@ from django.http import HttpResponse, JsonResponse
 
 
 from ..controller.EventController import EventController
+from .EventModel import EventModel
 from ..models.Event import Event
-
-# from django.forms import 
 
 eventController = EventController()
 def index(request):
@@ -18,10 +17,18 @@ def getEvent(request):
 def addEvent(request):
     if request.method == 'POST':
         request_body = json.loads(request.body)
-        event = Event()
-        event.name = request_body['name']
-        event.description = request_body['description']
+        eventModel = EventModel()
+        eventModel.eventName = request_body['name']
+        eventModel.eventDescription = request_body['description']
+        event = Event(eventName = eventModel.eventName, eventDescription = eventModel.eventDescription)
         eventController.add(event)
-        return JsonResponse(event.__dict__) 
+        return JsonResponse(eventModel.__dict__) 
     else: 
         return HttpResponse(status = 405)    
+
+def deleteEvent(request):
+    if request.method == 'DELETE':
+         request_body = json.loads(request.body)
+         id = request_body['eventId']
+         eventController.deleteById(id)
+         return HttpResponse(status = 200) 

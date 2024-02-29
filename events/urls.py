@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.getEvent, name="all events"),
     path("addEvent/", views.addEvent, name="add event"),
+    path("deleteEvent/", views.deleteEvent, name="delete event"),
 ]
