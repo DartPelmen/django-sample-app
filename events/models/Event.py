@@ -9,6 +9,8 @@ class Event(models.Model):
     users = models.ManyToManyField(User, through=User.events.through)
 
 
+
+
 class EventAdmin(admin.ModelAdmin):
     pass
 
