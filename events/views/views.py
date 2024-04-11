@@ -41,7 +41,16 @@ def deleteEvent(request):
          id = request_body['eventId']
          eventController.deleteById(id)
          return HttpResponse(status = 200) 
-    
+
+def sample(request):
+    count = 1
+    username = ""
+    events = ["first", "second", "third"]
+    if not request.user.is_authenticated:
+        username = "guest"
+    else:
+        username = "authentificated user"
+    return render(request, 'index/index.html', {'cnt':count,'username':username, 'events':events})    
 
 # def user_login(request):
 #     if request.method == 'POST':

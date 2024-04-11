@@ -82,7 +82,7 @@ DATABASES = {
         "NAME": "events_database",
         "SCHEMA": "public",
         "USER": "postgres",
-        "PASSWORD": "INSERTPASSWORDHERE",
+        "PASSWORD": "SB34jsl3@xm~",
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }
@@ -122,6 +122,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "events/static"),
+]
 
 STATIC_URL = 'static/'
 

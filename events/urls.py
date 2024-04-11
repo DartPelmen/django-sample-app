@@ -26,5 +26,5 @@ urlpatterns = [
     path("addEvent/", views.addEvent, name="add event"),
     path("deleteEvent/", views.deleteEvent, name="delete event"),
     path('accounts/', include('django.contrib.auth.urls')),
-
+    path('sample/', views.sample, name="sample template"),
 ]
